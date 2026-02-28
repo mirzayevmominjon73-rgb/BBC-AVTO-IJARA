@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}BBC AVTO IJARA{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<section class="hero text-center" style="
+    background: linear-gradient(rgba(13,27,42,0.7), rgba(13,27,42,0.7)),
+                url('https://images.unsplash.com/photo-1549924231-f129b911e442') center/cover no-repeat;
+    color: #fff;
+    padding: 120px 20px;
+">
+    <h1 class="fw-bold display-4 mb-3">Ishonchli Avto Ijara & Nasiya</h1>
+    <p class="lead mb-4">Zamonaviy avtomobillar • Qulay narx • Tez rasmiylashtirish</p>
+    <a href="{% url 'cars:list' %}" class="btn btn-primary btn-lg shadow-lg">🚗 Mashinalarga o‘ting</a>
+</section>
+
+<!-- OPTIONAL INTRO -->
+<div class="container my-5 text-center">
+    <p class="fs-5 text-muted">Bizning xizmatlarimiz orqali siz o‘zingizga qulay avtomobilni tanlashingiz va tezkor tarzda ijaraga olishingiz mumkin.</p>
+</div>
+{% endblock %}

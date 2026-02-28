@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Biz haqimizda - BBC AVTO IJARA{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+    <!-- Sarlavha -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold text-primary">🚗 Biz haqimizda</h1>
+        <p class="text-muted">BBC AVTO IJARA kompaniyasi haqida qisqacha ma'lumot</p>
+    </div>
+
+    <!-- Kompaniya haqida -->
+    <div class="card shadow-lg border-0 rounded-4 mb-5">
+        <div class="card-body p-4">
+            {% if about %}
+                <p class="fs-5 mb-0">{{ about.description }}</p>
+            {% else %}
+                <div class="alert alert-warning text-center mb-0">
+                    Hozircha kompaniya haqida ma'lumot mavjud emas.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Xodimlar -->
+    <h3 class="text-center fw-bold mb-4">👨‍💼 Xodimlarimiz</h3>
+
+    <div class="row g-4">
+        {% if employees %}
+            {% for emp in employees %}
+                <div class="col-md-4">
+                    <div class="card h-100 shadow border-0 rounded-4">
+
+                        {% if emp.photo %}
+                            <img src="{{ emp.photo.url }}"
+                                 class="card-img-top rounded-top-4"
+                                 alt="{{ emp.full_name }}"
+                                 style="height:230px; object-fit:cover;">
+                        {% else %}
+                            <img src="{% static 'common/img/placeholder.png' %}"
+                                 class="card-img-top rounded-top-4"
+                                 alt="Placeholder"
+                                 style="height:230px; object-fit:cover;">
+                        {% endif %}
+
+                        <div class="card-body text-center">
+                            <h5 class="fw-bold">{{ emp.full_name }}</h5>
+
+                            {% if emp.position %}
+                                <p class="text-muted mb-1">{{ emp.position }}</p>
+                            {% endif %}
+
+                            {% if emp.phone %}
+                                <p class="mb-0">
+                                    <a href="tel:{{ emp.phone }}" class="text-decoration-none">
+                                        📞 {{ emp.phone }}
+                                    </a>
+                                </p>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    Hozircha xodimlar mavjud emas.
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bosh sahifaga qaytish -->
+    <div class="text-center mt-5">
+        <a href="{% url 'home' %}" class="btn btn-primary rounded-pill px-4">
+            ⬅ Bosh sahifaga qaytish
+        </a>
+    </div>
+
+</div>
+{% endblock %}

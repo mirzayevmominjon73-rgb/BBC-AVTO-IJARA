@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Bog'lanish - BBC AVTO IJARA{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-body p-5">
+
+                    <h2 class="text-center mb-4 fw-bold text-primary">
+                        📞 Bog'lanish
+                    </h2>
+
+                    {% if contact %}
+                        <p><strong>Telefon:</strong> {{ contact.phone }}</p>
+                        <p><strong>Telegram:</strong> {{ contact.telegram }}</p>
+                        <p><strong>Manzil:</strong> {{ contact.location }}</p>
+                    {% else %}
+                        <div class="alert alert-warning text-center">
+                            Hozircha kontakt ma’lumot mavjud emas.
+                        </div>
+                    {% endif %}
+
+                    <!-- Bosh sahifaga qaytish tugmasi -->
+                    <div class="text-center mt-4">
+                        <a href="{% url 'home' %}" class="btn btn-primary rounded-pill px-4">
+                            ⬅ Bosh sahifaga qaytish
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

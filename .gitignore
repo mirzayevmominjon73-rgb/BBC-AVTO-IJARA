@@ -1,0 +1,44 @@
+# Python asosiy fayllari
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual muhit
+venv/
+env/
+.venv/
+
+# Django fayllari
+*.log
+*.pot
+*.pyc
+db.sqlite3
+/media/
+staticfiles/
+static/
+local_settings.py
+
+# IDE va tahrirchi fayllari
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS (tizim) fayllari
+.DS_Store
+Thumbs.db
+
+# Test natijalari
+.coverage
+htmlcov/
+.tox/
+pytest_cache/
+
+# Migratsiya fayllarini saqlamoqchi bo‘lmasangiz (lekin odatda saqlanadi)
+# */migrations/*
+# !*/migrations/__init__.py
+
+# Parollar yoki maxfiy kalitlar saqlanadigan fayl
+.env
+.env.local
+*.env

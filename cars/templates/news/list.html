@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Yangiliklar - BBC AVTO IJARA{% endblock %}
+
+{% block content %}
+<h1>Yangiliklar</h1>
+<div class="row g-3">
+    {% for news in news_list %}
+    <div class="col-md-4">
+        <div class="card">
+            <img src="{{ news.image.url }}" class="card-img-top" alt="{{ news.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ news.title }}</h5>
+                <p class="card-text">{{ news.date }}</p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Hozircha yangiliklar yo‘q.</p>
+    {% endfor %}
+</div>
+{% endblock %}

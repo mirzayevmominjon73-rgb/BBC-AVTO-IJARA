@@ -1,0 +1,5 @@
+{% for img in car.images.all %}
+    <img src="{{ img.image.url }}"
+         class="img-fluid mb-2"
+         style="height:200px; object-fit:cover;">
+{% endfor %}
